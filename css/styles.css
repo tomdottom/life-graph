@@ -1,0 +1,80 @@
+body, html {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+#main-wrapper {}
+
+#calander-wrapper {
+	position: relative;
+}
+
+#month-clock-wrapper {
+	width: 100%;
+	position: fixed;
+	top: 100px;
+	left: 0px;
+
+	text-align: center;
+}
+
+#month-clock-wrapper {
+	font-family: Helvetica;
+}
+
+#month-clock .date div {
+	color: #FFF;
+	font-size: 15em;
+
+	background-image: 	-webkit-linear-gradient(90deg, rgb(65,65,65) 49.25%, transparent 0%),
+						-webkit-linear-gradient(-90deg, rgb(65,65,65) 49.25%, transparent 0%);
+	box-shadow: 7px 7px 10px rgba(65,65,65,0.5);
+
+	display: inline-block;
+	
+	border-radius: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 5px;
+	line-height: 91%;
+	margin-top: 0px;
+	padding-top: 0px;
+	height: 90%;
+}
+#month-clock .message {
+	color: rgb(65,65,65);
+
+	display: inline-block;
+	
+
+	font-size: 3em;
+	margin-top: 5px;
+	padding-top: 0px;
+}
+
+#calander-wrapper table {
+	margin: 0 auto;
+
+	border-spacing: 4px;
+	border-collapse: separate;
+
+	font-family: "American Typewriter", Courier, "Courier New", monospace;
+}
+
+.header-row {}
+
+.data-row {}
+
+.year-col, .data-col, .age-col {
+	width: 70px;
+	height: 25px;
+
+	text-align: center;
+	vertical-align: middle;
+}
+
+.month-lived {
+	background-color: rgb(186, 212, 26);
+	border-radius: 5px;
+}
