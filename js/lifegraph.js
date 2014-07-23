@@ -20,6 +20,7 @@ function createRoutes() {
         },
         '*': function(req, event){
             if(this.processed) { return; }
+            this.anchor.set('birthdate/01/01/1970');
             this.processed = true;
         }
     });
