@@ -2,6 +2,13 @@ body, html {
 	width: 100%;
 	padding: 0px;
 	margin: 0px;
+	font-size: 1em;
+}
+
+@media (max-width: 600px) {
+	body, html {
+		font-size: 0.7em;
+	}
 }
 
 
@@ -42,11 +49,22 @@ body, html {
 	height: 90%;
 }
 
+@media (max-width: 600px) {
+	.month-clock .date div {
+		font-size: 7em;
+		border-radius: 10px;
+		padding-left: 8px;
+		padding-right: 8px;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		margin-left: 2px;
+	}
+}
+
 .month-clock .message {
 	color: rgb(65,65,65);
 
 	display: inline-block;
-	
 
 	font-size: 3em;
 	margin-top: 5px;
@@ -65,7 +83,10 @@ body, html {
 
 	font-family: "American Typewriter", Courier, "Courier New", monospace;
 }
-
+.life-graph {
+	table-layout: fixed;
+	white-space: nowrap;
+}
 .header-row {}
 
 .data-row {}
@@ -76,6 +97,7 @@ body, html {
 
 	text-align: center;
 	vertical-align: middle;
+	overflow: hidden;
 }
 
 .month-lived {
@@ -86,4 +108,23 @@ body, html {
 .month-to-live {
 	background-color: rgb(230, 230, 230);
 	border-radius: 5px;
+}
+@media (max-width: 600px) {
+	.year-col, .data-col, .age-col {
+		width: 15px;
+		height: 8px;
+	}
+
+	.month-lived {
+		border-radius: 1px;
+	}
+
+	.month-to-live {
+		border-radius: 1px;
+	}
+
+	.xs-hidden {
+		visibility: hidden;
+		display: none;
+	}
 }
