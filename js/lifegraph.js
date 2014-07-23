@@ -1,19 +1,35 @@
 function createRoutes() {
-    var router = new Grapnel();
 
     var date = {};
 
-    router.get('birthdate/:day/:month/:year', function(req){
-        date.day = req.params.day;
-        date.month = req.params.month;
-        date.year = req.params.year;
+    var router = Grapnel.listen({
+        'birthdate/:day/:month/:year': function(req, event){
+            if(this.processed) { return; }
+            event.preventDefault();
+            date.day = req.params.day;
+            date.month = req.params.month;
+            date.year = req.params.year;
 
-        console.log(date);
+            if(_.all(date)){
+                var birthDate = new Date(date.year, (date.month - 1), date.day);
+                drawLifeGraph(birthDate);
+            } else {
+                return;
+            }
+            this.processed = true;
+        },
+        '*': function(req, event){
+            if(this.processed) { return; }
+            this.processed = true;
+        }
     });
 
-    if(_.all(date)){
-        return new Date(date.year, (date.month - 1), date.day);
-    }
+    // called after routes processed
+    router.on('hashchange', function(event) {
+        this.processed = false;
+    });
+    // needed for fresh page load
+    router.processed =  false;
 }
 
 function drawLifeGraph(birthDate) {
@@ -108,10 +124,7 @@ function drawLifeGraph(birthDate) {
 }
 
 function main() {
-    var birthDate = createRoutes();
-    if(birthDate) {
-        drawLifeGraph(birthDate);
-    }
+    createRoutes();
 }
 
 domready(function () {
